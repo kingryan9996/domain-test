@@ -22,6 +22,7 @@ const WishList = () => {
     useEffect(() => {
         dataGet();
     }, [])
+    console.log(productList, "12412???rwqrSADFADF")
 
     return (
         <div>
@@ -31,13 +32,13 @@ const WishList = () => {
             <br />WishList
             카테고리 별로 상품조회기능
             <article style={{ display: "flex" }}>
-                <ul>{categoryList.map(obj => <li onClick={() => { setState(obj) }} key={obj}>{obj}</li>)}
+                <ul>{categoryList.map((obj, idx) => <li onClick={() => { setState(obj) }} key={idx}>{obj}</li>)}
                 </ul>
                 <div style={{ border: "1px solid black", background: "#ddd" }}>
                     카테고리 : <strong>{state ? state : "카테고리를 선택하세요."}</strong><br />
 
-                    {productList?.map(obj => {
-                        return (<div>
+                    {productList?.map((obj, idx) => {
+                        return (<div key={idx}>
                             <strong>상품명</strong> : <em>{obj.itemName} </em><button onClick={() => { setSelectList([...selectList, obj]) }}>클릭해서 담기</button>
                         </div>)
                     })}

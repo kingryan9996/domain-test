@@ -1,11 +1,29 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import List from './src/List'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  // async function dataGet() {
+  //   const res = await axios.get(`http://localhost:3000/api`)
+  //   const data = res.data
+  //   console.log(data, '데이터조회결과')
+  // }
+
+  // useEffect(() => {
+  //   dataGet();
+  // }, [])
+
+  // axios.get('https://kapi.kakao.com/v1/store/search?brand=44012').then(res => console.log(res))
+  const userList = ["1001", "1002", "1003"]
+
   return (
     <>
       <Head>
@@ -14,8 +32,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        되냐고 안되냐고
+      <main className={styles.main}>
+        시작페이지<br />
+        간단한 사이트 소개 및 사용방법 안내<br />
+        {userList.map((obj, idx) => { return <Link key={idx} href={`/WishList/${obj}`}><br /><br />{idx + 1}. {obj}회원님</Link> })}
+        <List />
       </main>
     </>
   )

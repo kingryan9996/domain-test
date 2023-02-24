@@ -12,7 +12,7 @@ const WishList = () => {
 
 
     async function dataGet() {
-        const res = await axios.get(`http://localhost:3000/api`)
+        const res = await axios.get(`/api`)
         const data = res.data
         // console.log(data, '데이터조회결과')
         setProductList(data)

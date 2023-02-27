@@ -7,7 +7,8 @@ import TeamContext from './src/TeamContext'
 
 export default function App({ Component, pageProps }) {
   const REST_API_KEY = "51d923e3f663f838b4e51d65282d1b89"
-  const REDIRECT_URI = "http://localhost:3000/auth/kakao/callback"
+  const REDIRECT_URI = "https://localhost:3000/auth/kakao/callback" // 작업할떄는 그냥쓰고
+  // const REDIRECT_URI = "굴러가는 경로를, "
 
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
